@@ -109,14 +109,14 @@ TrainReader:
     center_sampling_radius: 1.5
     downsample_ratios: [8, 16, 32, 64, 128]
     norm_reg_targets: True
-  batch_size: 1  #2
+  batch_size: 2
   shuffle: true
-  worker_num: 2   #4
+  worker_num: 4
   use_process: false
 
 EvalReader:
   inputs_def:
-    fields: ['image', 'im_id', 'im_shape', 'im_info']
+    fields: ['image', 'im_info', 'im_id', 'im_shape', 'gt_bbox' , 'gt_class', 'is_difficult'] #['image', 'im_id', 'im_shape', 'im_info']
   dataset:
     !VOCDataSet
 #    image_dir: val2017
